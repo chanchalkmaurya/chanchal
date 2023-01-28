@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %}
+    Contact : Chanchal K Maurya
+{% endblock title  %}
+
+{% block extrajs %}
+    {% comment %} <script src="{% static 'js/contact_form_validations.js' %}"></script> {% endcomment %}
+{% endblock extrajs %}
+
+<!-- contact form -->
+{% block contact_form %}
+    <!-- Display an alert message when an query is submitted successfully-->
+    {% if  messages %}
+        {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+        {% endfor %}
+    {% endif %}
+
+    <h3> Have any Queries? Ask! </h3>
+    <form name="contact_form" onsubmit="return validateForm()" method = "POST">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <input type="text" class="form-control" name="name" id="username" placeholder="Name" required>
+        </div>
+        <div class="form-group mb-3">
+            <input type="email" class="form-control" name="email" id="useremail" placeholder="Email" required>
+        </div>
+        <div class="form-group mb-3">
+            <input type="number" class="form-control" name="mobile" id="usermobile" placeholder="Mobile" pattern="[789][0-9]{9}" maxlength="10" required>
+        </div>
+        <div class="form-group mb-3">
+            <textarea class="form-control" id="query" name="query" placeholder="Ask Your Queries..." rows="3" required></textarea>
+        </div>
+        <button type="submit" name="sendquerysubmit" class="btn btn-success mb-3">Send</button>
+    </form>
+{% endblock contact_form %}
+
+
+<!-- queries data-->
+
+{% block content %}
+    <div class"container">
+    <br><br>
+        {%  if all_queries %}    
+        <h3> Query asked by others </h3>
+        <div class="row shadow-lg">
+            <div class="card col-md-12" >
+                <br>
+                {% for obj in all_queries %}
+                <div class="card-body">
+                    <h5 class="card-title" style="color:green;">{{obj.name}}</h5>
+                    <p class="card-subtitle mb-2 text-muted">{{ obj.email }} · {{ obj.mobile }} </p>
+                    <h6 class="card-text" style="color:#191970;">&emsp;{{obj.query}}</h6>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item"><a class="page-link" href="?page=1" tabindex="1"><<</a></li>
+              {% if all_queries.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{all_queries.previous_page_number}}">{{all_queries.previous_page_number}}</a></li>
+              {% endif %}
+        
+              <li class="page-item"><a class="page-link" href="?page={{all_queries.number}}">{{all_queries.number}}</a></li>
+              
+              {% if all_queries.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{all_queries.next_page_number}}">{{all_queries.next_page_number}}</a></li>
+              {% endif %}<li class="page-item"><a class="page-link" href="?page={{all_queries.paginator.num_pages}}">>></a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock content %}
+
+
+
+
+
+

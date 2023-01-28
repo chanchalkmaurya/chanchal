@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Gallery - Chanchal K Maurya
+{% endblock title %}
+
+
+
+{% block content %}
+<br>
+<div class='container shadow'>
+    <h2> College Diaries </h2>
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/college_1.png' %}"  class="rounded-lg" alt="image_1" width="360" height="250">
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/college_2.jpg' %}" class="rounded-lg"  alt="image_2" width="360" height="250">
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/college_3.jpg' %}" class="rounded-lg"  alt="image_3" width="360" height="250">
+        </div>
+    </div>
+</div>
+
+<br>
+<div class='container shadow'>
+    <h2>Infoedge</h2>
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/infoedge_1.jpg' %}" class="rounded-lg" alt="Infoedge_1" width="360" height="250">
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/infoedge_2.jpg' %}"  class="rounded-lg" alt="Infoedge_2" width="360" height="250">
+        </div>
+    </div>
+</div>
+<br>
+<div class='container shadow'>
+    <h2>Home</h2>
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <img src="{% static 'images/gallery/chanchal_1.jpg' %}" class="rounded-lg"  alt="" width="360" height="250">
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+

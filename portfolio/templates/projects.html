@@ -1,0 +1,47 @@
+<!-- extending the base.html file here // located at common templates folder-->
+{% extends 'base.html' %}
+
+<!-- changing the title name here -->
+{% block title %}
+    Projects : Chanchal K Maurya
+{% endblock title  %}
+
+
+<!-- Start Query Output here-->
+{% block content %}
+<br>
+    <h2 style="color:#191970;"> Project Details </h2>
+    {% for obj in all_projects %}
+    <div class="col">
+        {% if obj.id %}
+            <div class="card text-center">
+                <div class="card-header">
+                Project: {{obj.id}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#191970;">{{obj.title}}</h5>
+                    <p class="card-text">{{obj.description}}</p>
+                    <a href="{{obj.link}}" class="btn btn-success" target="_blank">See Project</a>
+                </div>
+            </div>
+        {% endif %}
+        </div><br>
+    {% endfor %}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item"><a class="page-link" href="?page=1" tabindex="1"><<</a></li>
+          {% if all_queries.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page={{all_projects.previous_page_number}}">{{all_projects.previous_page_number}}</a></li>
+          {% endif %}
+    
+          <li class="page-item"><a class="page-link" href="?page={{all_projects.number}}">{{all_projects.number}}</a></li>
+          
+          {% if all_projects.has_next %}
+          <li class="page-item"><a class="page-link" href="?page={{all_projects.next_page_number}}">{{all_projects.next_page_number}}</a></li>
+          {% endif %}<li class="page-item"><a class="page-link" href="?page={{all_projects.paginator.num_pages}}">>></a></li>
+        </ul>
+    </nav>
+{% endblock content %}
+<!-- End Query output here-->
+
