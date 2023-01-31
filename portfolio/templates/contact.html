@@ -24,7 +24,7 @@
     {% endif %}
 
     <h3> Have any Queries? Ask! </h3>
-    <form name="contact_form" onsubmit="return validateForm()" method = "POST">
+    <form name="contact_form"  method = "POST">
         {% csrf_token %}
         <div class="form-group mb-3">
             <input type="text" class="form-control" name="name" id="username" placeholder="Name" required>
