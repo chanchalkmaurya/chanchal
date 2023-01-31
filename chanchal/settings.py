@@ -47,6 +47,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'chanchal.urls'
 
+CSRF_TRUSTED_ORIGINS = ['https://chanchalkmaurya.in', 'https://www.chanchalkmaurya.in']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
