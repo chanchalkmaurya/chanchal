@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +48,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'chanchal.urls'
 
-CSRF_TRUSTED_ORIGINS = ['https://chanchalkmaurya.in', 'https://www.chanchalkmaurya.in']
+# CSRF_TRUSTED_ORIGINS = ['https://chanchalkmaurya.in', 'https://www.chanchalkmaurya.in']
 
 TEMPLATES = [
     {
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'chanchal.wsgi.application'
 # Live Database Entries
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': env("DJANGO_NAME"),                      
         'USER': env("DJANGO_USER"),
         'PASSWORD': env("DJANGO_PASSWORD"),
@@ -139,10 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static/'),
-# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -13,7 +13,7 @@ def homepage(request):
     'name': 'Welcome Home!',
     'current_page': ''
     }
-    return render(request, 'index.html', context)
+    return render(request, 'portfolio/index.html', context)
 
 
 def contact(request):
@@ -38,7 +38,7 @@ def contact(request):
             'all_queries': all_queries,
             'current_page': 'Contact'
         }
-        return render(request, 'contact.html', context)
+        return render(request, 'portfolio/contact.html', context)
 
 
 def projects(request):
@@ -52,12 +52,12 @@ def projects(request):
     'current_page': 'Projects',
     'all_projects': all_projects
     }
-    return render(request, 'projects.html', context)
+    return render(request, 'portfolio/projects.html', context)
 
 def gallery(request):
     context = {
     'name': 'Welcome to Gallery Page',
     'current_page': 'Gallery'
     }
-    return render(request, 'gallery.html', context)
+    return render(request, 'portfolio/gallery.html', context)
 

@@ -22,31 +22,34 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark"">
             <div class="container-fluid row">
-              <a class="navbar-brand col-lg-2" style="color:#008000;" href="{% url 'homepage'%}">Chanchal K Maurya</a>
+              <a class="navbar-brand col-lg-2" style="color:#008000;" href="{% url 'portfolio:homepage'%}">Chanchal K Maurya</a>
               {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button> {% endcomment %}
               <div class="collapse navbar-collapse col-lg-7" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'projects'%}">Projects</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'portfolio:projects'%}">Projects</a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'gallery'%}">Gallery</a>
+                    <a class="nav-link" href="{% url 'portfolio:gallery'%}">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    <a class="nav-link" href="{% url 'portfolio:contact' %}">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
                   </li>
                 </ul>
                 <span class="navbar">
                     <a href="https://www.linkedin.com/in/elvissh07/" target="_blank">
-                        <img  src = {% static 'images/linkedin.svg' %} alt="Linkedin" height = "20"/>
+                        <img  src = {% static 'portfolio/images/linkedin.svg' %} alt="Linkedin" height = "20"/>
                     </a>&nbsp;
                     <a href="https://github.com/chanchalkmaurya/" target="_blank">
-                        <img src = {% static 'images/github.svg' %} alt="gitHub" height = "20"/>
+                        <img src = {% static 'portfolio/images/github.svg' %} alt="gitHub" height = "20"/>
                     </a>&nbsp;
                     <a href="https://www.instagram.com/chanchalkmaurya/"  target="_blank">
-                        <img src = {% static 'images/instagram.svg' %} alt="Instagram" height = "20"/>
+                        <img src = {% static 'portfolio/images/instagram.svg' %} alt="Instagram" height = "20"/>
                     </a>
                     
                 </span>
@@ -57,7 +60,7 @@
 
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item active"><a style="color:green;" href="{% url 'homepage' %}">Home</a></li>
+              <li class="breadcrumb-item active"><a style="color:green;" href="{% url 'portfolio:homepage' %}">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{ current_page }}</li>
             </ol>
           </nav>
@@ -130,7 +133,7 @@
     <!-- Copyright -->
     <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.1);">
         Designed by:
-        <a class="text-white" href="{% url 'homepage' %}"> <font color="green">Chanchal K Maurya </font></a>
+        <a class="text-white" href="{% url 'portfolio:homepage' %}"> <font color="green">Chanchal K Maurya </font></a>
     </div>
     <!-- Copyright -->
     </footer>
