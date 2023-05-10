@@ -1,0 +1,14 @@
+# For connecting to aws
+
+
+ssh -i "chanchalkmaurya.pem" ubuntu@35.78.185.140
+
+
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+sudo systemctl restart nginx
+
+
+#check status
+sudo systemctl status gunicorn
+sudo systemctl status nginx
