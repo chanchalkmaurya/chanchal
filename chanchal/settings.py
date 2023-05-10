@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'chanchal.wsgi.application'
 # Live Database Entries
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': env("DJANGO_NAME"),                      
         'USER': env("DJANGO_USER"),
         'PASSWORD': env("DJANGO_PASSWORD"),
